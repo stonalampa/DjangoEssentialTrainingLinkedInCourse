@@ -1,9 +1,17 @@
-<html>
-    <h1>These are the notes:</h1>
+{% extends "base.html" %} {% block content %}
+<h1 class="my-5">These are the notes:</h1>
+<div class="row row-cols3 g-2">
+    <div class="col">
+        <div class="p-3 border">
+            <h3>{{note.title}}</h3>
+        </div>
 
-    <ul>
-        {% for note in notes %}
-        <li>{{ note.title }}</li>
-        {% endfor %}
-    </ul>
-</html>
+            <ul>
+                {% for note in notes %}
+                <li class="note-li">{{ note.title }}</li>
+                {% endfor %}
+            </ul>
+            {% endblock %}
+        </div>
+    </div>
+</div>

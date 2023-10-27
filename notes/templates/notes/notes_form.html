@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% block content %}
+<form action="{% url 'notes.new' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <!-- cross site reguest forgery token; request needs to go with token -->
+    <button type="submit" class="btn btn-primary my-5">Submit</button>
+</form>
+{% if form.errors %}
+<div class="alert alert-danger my-5">{{form.errors.title.as_text}}</div>
+{% endif %} {% endblock %}
